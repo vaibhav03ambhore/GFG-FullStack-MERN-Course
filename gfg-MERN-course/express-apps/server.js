@@ -47,6 +47,19 @@ app.post('/adduser',(req,res)=>{
     res.send(`user added successfully`);
 })
 
+app.put('/updateuser/:id',(req,res)=>{
+    var uid=parseInt(req.params.id);
+    var {username,email}=req.body;
+
+    var foundData=_.findWhere(userData,{id:uid});
+    if(foundData){
+        foundData.username=username || foundData.username;
+        foundData.email=email || foundData.email;
+        res.send('User updated successfully');
+    } 
+    else res.send('No user found');
+})
+
 
 
 
