@@ -1,4 +1,4 @@
-const User = require('./connectionTest');
+const User = require('./models/model');
 
 const express = require('express');
 const bp= require('body-parser');
